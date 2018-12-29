@@ -1,0 +1,25 @@
+"*":
+  core:
+    disabledPackages: [
+      "language-javascript"
+    ]
+  editor:
+    autoIndentOnPaste: false
+    fontSize: 16
+    invisibles: {}
+    lineHeight: 1.8
+    showIndentGuide: true
+    tabType: "soft"
+  "exception-reporting":
+    userId: "9d99cdce-eddf-6870-c191-ef09611e30a7"
+  "file-watcher":
+    promptWhenFileHasChangedOnDisk: false
+  "language-babel": {}
+  "pdf-view": {}
+  "project-manager":
+    closeCurrent: true
+  typewriter: {}
+  welcome:
+    showOnStartup: false
+  whitespace:
+    removeTrailingWhitespace: true
