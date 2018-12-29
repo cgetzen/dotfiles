@@ -4,3 +4,8 @@ Plug 'junegunn/fzf.vim'
 call plug#end()
 
 map ; :Files<CR>
+
+:command WQ wq
+:command Wq wq
+:command W w
+:command Q q
