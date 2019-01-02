@@ -11,7 +11,9 @@ brew: Brewfile
 
 vim: .vimrc
 	test -e ~/.vimrc && rm ~/.vimrc
+	test -e ~/.vim/autoload/plug.vim || curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 	ln -s ~/Workspace/dotfiles/.vimrc ~/.vimrc
+	vim +'PlugInstall --sync' +qa
 
 zsh: ohmyzsh .zshrc
 	test -e ~/.zshrc && rm ~/.zshrc
