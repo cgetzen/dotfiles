@@ -5,6 +5,7 @@ all:
 	@echo " - vim"
 	@echo " - zsh"
 	@echo " - atom"
+	@echo " - git"
 
 brew: Brewfile
 	brew bundle
@@ -28,3 +29,6 @@ atom:
 	test -e ~/.atom && rm ~/.atom/config.cson
 	ln -s ~/Workspace/dotfiles/.atom/config.cson ~/.atom/config.cson
 	apm install --packages-file .atom/package.list
+
+git:
+	cp .gitconfig ~/.gitconfig

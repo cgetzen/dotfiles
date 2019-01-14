@@ -2,6 +2,7 @@
   core:
     disabledPackages: [
       "language-javascript"
+      "markdown-preview"
     ]
   editor:
     autoIndentOnPaste: false
@@ -15,6 +16,8 @@
   "file-watcher":
     promptWhenFileHasChangedOnDisk: false
   "language-babel": {}
+  "linter-ui-default":
+    panelHeight: 245
   "pdf-view": {}
   "project-manager":
     closeCurrent: true
