@@ -11,6 +11,13 @@ plugins=(
 
 source $ZSH/oh-my-zsh.sh
 
+# go
+alias gosrc='cd $GOPATH/src/github.com'
+# kubectl
+alias get="kubectl get"
+alias delete="kubectl delete"
+alias logs="kubectl logs"
+
 # other
 export GOPATH=$HOME/go
 export PATH=$PATH:$GOPATH/bin

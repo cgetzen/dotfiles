@@ -4,6 +4,7 @@
       "language-javascript"
       "markdown-preview"
     ]
+    telemetryConsent: "no"
   editor:
     autoIndentOnPaste: false
     fontSize: 16
