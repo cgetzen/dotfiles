@@ -6,8 +6,10 @@ all:
 	@echo " - zsh"
 	@echo " - atom"
 	@echo " - git"
+	@echo " - update"
 
 brew: Brewfile
+	(crontab -l ; echo '0 12 * * 1-5 ~/dotfiles/brew_manager.sh > /tmp/brew-$(date "+%m%d").log && terminal-notifier -title "Updated brew" -message "/tmp/brew-$(date "+%m%d").log"') | sort - | uniq - | crontab -
 	brew bundle
 
 vim: .vimrc
