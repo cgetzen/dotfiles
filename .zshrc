@@ -11,8 +11,12 @@ plugins=(
 
 source $ZSH/oh-my-zsh.sh
 
+# macports
+export PATH="$PATH:/opt/local/bin"
+
 # go
 alias gosrc='cd $GOPATH/src/github.com'
+
 # kubectl
 alias get="kubectl get"
 alias delete="kubectl delete"

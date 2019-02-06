@@ -7,7 +7,7 @@
     telemetryConsent: "no"
   editor:
     autoIndentOnPaste: false
-    fontSize: 16
+    fontSize: 17
     invisibles: {}
     lineHeight: 1.8
     showIndentGuide: true
