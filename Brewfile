@@ -17,7 +17,6 @@ brew "cfssl"
 brew "clisp"
 brew "consul"
 brew "coreutils"
-brew "curl", args: ["with-nghttp2"]
 brew "zeromq"
 brew "czmq"
 brew "go"
@@ -80,7 +79,7 @@ brew "vault"
 brew "watch"
 brew "watchman"
 brew "wget"
-brew "yarn", args: ["without-node"]
+brew "yarn", args: ["ignore-dependencies"]
 brew "yq"
 brew "zsh"
 brew "zsh-completions"
