@@ -24,8 +24,7 @@ zsh: ohmyzsh .zshrc
 
 ohmyzsh:
 	test -e ~/.oh-my-zsh || git clone https://github.com/robbyrussell/oh-my-zsh.git ~/.oh-my-zsh
-	test -e ~/.oh-my-zsh/custom/themes && rm -r ~/.oh-my-zsh/custom/themes
-	ln -s ~/Workspace/dotfiles/.oh-my-zsh/custom/themes ~/.oh-my-zsh/custom/themes
+	cp ~/Workspace/dotfiles/.oh-my-zsh/custom/themes/charlieg.zsh-theme ~/.oh-my-zsh/custom/themes
 
 atom:
 	test -e ~/.atom && rm ~/.atom/config.cson || atom
