@@ -22,6 +22,10 @@ zsh: ohmyzsh .zshrc
 	test -e ~/.zshrc && rm ~/.zshrc || true
 	ln -s ~/Workspace/dotfiles/.zshrc ~/.zshrc
 
+tmux:
+	test -e ~/.tmux.conf && rm ~/.tmux.conf || true
+	ln -s ~/Workspace/dotfiles/.tmux.conf ~/.tmux.conf
+
 ohmyzsh:
 	test -e ~/.oh-my-zsh || git clone https://github.com/robbyrussell/oh-my-zsh.git ~/.oh-my-zsh
 	cp ~/Workspace/dotfiles/.oh-my-zsh/custom/themes/charlieg.zsh-theme ~/.oh-my-zsh/custom/themes

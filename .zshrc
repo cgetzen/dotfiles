@@ -12,7 +12,7 @@ plugins=(
 source $ZSH/oh-my-zsh.sh
 
 # macports
-export PATH="$PATH:/opt/local/bin"
+export PATH="/Users/charliegetzen/bin:$PATH:/opt/local/bin"
 
 # go
 alias gosrc='cd $GOPATH/src/github.com'
