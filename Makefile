@@ -9,7 +9,7 @@ all:
 	@echo " - update"
 
 brew: Brewfile
-	(crontab -l ; echo '0 12 * * 1-5 ~/Workspace/dotfiles/brew_manager.sh > /tmp/brew-`/bin/date +%m%d`.log && terminal-notifier -title "Updated brew" -message "/tmp/brew-`/bin/date +%m%d`.log"') | sort - | uniq - | crontab -
+	(crontab -l ; echo '0 12 * * 1-5 ~/Workspace/dotfiles/brew_manager.sh > /tmp/brew.log && terminal-notifier -title "Updated brew" -message "/tmp/brew.log"') | sort - | uniq - | crontab -
 	brew bundle
 
 vim: .vimrc
