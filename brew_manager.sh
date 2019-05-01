@@ -1,15 +1,15 @@
 #!/bin/sh
 echo "# Update"
-brew update
+/usr/local/bin/brew update
 echo "# Upgrade"
-brew upgrade
-brew cask upgrade
+/usr/local/bin/brew upgrade
+/usr/local/bin/brew cask upgrade
 
 echo "# Cleanup"
-brew cleanup -s
+/usr/local/bin/brew cleanup -s
 
 echo "# Diagnostics"
-brew doctor
-brew missing
-brew outdated
-brew cask outdated
+/usr/local/bin/brew doctor
+/usr/local/bin/brew missing
+/usr/local/bin/brew outdated
+/usr/local/bin/brew cask outdated
