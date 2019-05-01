@@ -8,3 +8,6 @@
 	required = true
 [push]
 	default = current
+[alias]
+	amend = commit --amend --no-edit
+	branches = "!echo \"`git branch`\""
