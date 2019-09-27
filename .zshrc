@@ -11,7 +11,6 @@ if ! test -d ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions; then
 fi
 
 plugins=(
-  git
   osx
   zsh-syntax-highlighting
   zsh-autosuggestions
@@ -19,6 +18,7 @@ plugins=(
 
 source $ZSH/oh-my-zsh.sh
 
+export PATH="/usr/local/sbin:$PATH"
 # macports
 export PATH="/Users/charliegetzen/bin:$PATH:/opt/local/bin"
 
@@ -31,10 +31,11 @@ alias delete="kubectl delete"
 alias logs="kubectl logs"
 
 # other
-alias ls=" ls"
+# alias ls=" ls"
 export GOPATH=$HOME/go
 export PATH=$PATH:$GOPATH/bin
 eval $(thefuck --alias)
+source /usr/local/share/zsh/site-functions/_awless
 
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 export PATH="$HOME/.rbenv/bin:$PATH"
