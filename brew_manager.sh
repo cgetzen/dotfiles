@@ -1,4 +1,5 @@
-#!/bin/sh
+#!/usr/bin/env bash
+source ~/.bash_profile
 echo "# Update"
 /usr/local/bin/brew update
 echo "# Upgrade"
