@@ -12,3 +12,6 @@
 	amend = commit --amend --no-edit
 	branches = "!echo \"`git branch`\""
 	set-upstream = !git branch --set-upstream-to=origin/`git symbolic-ref --short HEAD`
+[pager]
+	diff = diff-so-fancy | less --tabs=1,5 -RFX
+	show = diff-so-fancy | less --tabs=1,5 -RFX

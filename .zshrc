@@ -34,8 +34,8 @@ alias logs="kubectl logs"
 # alias ls=" ls"
 export GOPATH=$HOME/go
 export PATH=$PATH:$GOPATH/bin
-eval $(thefuck --alias)
-source /usr/local/share/zsh/site-functions/_awless
+# eval $(thefuck --alias)
+# source /usr/local/share/zsh/site-functions/_awless
 
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 export PATH="$HOME/.rbenv/bin:$PATH"
@@ -43,3 +43,15 @@ eval "$(rbenv init -)"
 
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+tmux has-session -t 0 2> /dev/null || tmux
+
+
+# heroku autocomplete setup
+HEROKU_AC_ZSH_SETUP_PATH=/Users/charliegetzen/Library/Caches/heroku/autocomplete/zsh_setup && test -f $HEROKU_AC_ZSH_SETUP_PATH && source $HEROKU_AC_ZSH_SETUP_PATH;
+
+alias cat=bat
+alias catcat=cat
+alias lsls=ls
+alias ls=exa
+alias ping=prettyping
