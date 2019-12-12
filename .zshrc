@@ -32,7 +32,7 @@ alias logs="kubectl logs"
 
 # other
 # alias ls=" ls"
-export GOPATH=$HOME/go
+# export GOPATH=$HOME/go
 export PATH=$PATH:$GOPATH/bin
 # eval $(thefuck --alias)
 # source /usr/local/share/zsh/site-functions/_awless
@@ -50,8 +50,9 @@ tmux has-session -t 0 2> /dev/null || tmux
 # heroku autocomplete setup
 HEROKU_AC_ZSH_SETUP_PATH=/Users/charliegetzen/Library/Caches/heroku/autocomplete/zsh_setup && test -f $HEROKU_AC_ZSH_SETUP_PATH && source $HEROKU_AC_ZSH_SETUP_PATH;
 
-alias cat=bat
-alias catcat=cat
-alias lsls=ls
-alias ls=exa
+alias cat=" bat"
+alias _cat=" /bin/cat"
+alias _ls=:=" /bin/ls"
+alias ls=" exa"
 alias ping=prettyping
+alias _ping=/sbin/ping
