@@ -23,7 +23,7 @@ export PATH="/usr/local/sbin:$PATH"
 export PATH="/Users/charliegetzen/bin:$PATH:/opt/local/bin"
 
 # go
-alias gosrc='cd $GOPATH/src/github.com'
+alias gosrc='cd ~/go/src/github.com'
 
 # kubectl
 alias get="kubectl get"
@@ -52,7 +52,7 @@ HEROKU_AC_ZSH_SETUP_PATH=/Users/charliegetzen/Library/Caches/heroku/autocomplete
 
 alias cat=" bat"
 alias _cat=" /bin/cat"
-alias _ls=:=" /bin/ls"
+alias _ls=" /bin/ls"
 alias ls=" exa"
 alias ping=prettyping
 alias _ping=/sbin/ping
