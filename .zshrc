@@ -31,9 +31,8 @@ alias delete="kubectl delete"
 alias logs="kubectl logs"
 
 # other
-# alias ls=" ls"
 # export GOPATH=$HOME/go
-export PATH=$PATH:$GOPATH/bin
+export PATH=$PATH:$(go env GOPATH)/bin
 # eval $(thefuck --alias)
 # source /usr/local/share/zsh/site-functions/_awless
 
