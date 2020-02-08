@@ -12,11 +12,9 @@ brew: Brewfile
 	(crontab -l ; echo '0 12 * * 1-5 ~/Workspace/dotfiles/brew_manager.sh &> /tmp/brew.log && /usr/local/bin/terminal-notifier -title "Updated brew" -message "/tmp/brew.log"') | sort - | uniq - | crontab -
 	brew bundle
 
-vim: .vimrc
+bim: .vimrc
 	test -e ~/.vimrc && rm ~/.vimrc || true
-	test -e ~/.vim/autoload/plug.vim || curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 	ln -s ~/Workspace/dotfiles/.vimrc ~/.vimrc
-	vim +'PlugInstall --sync' +qa
 
 zsh: ohmyzsh .zshrc
 	test -e ~/.zshrc && rm ~/.zshrc || true

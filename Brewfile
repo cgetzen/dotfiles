@@ -1,5 +1,5 @@
 tap "banzaicloud/tap"
-tap "caskroom/cask"
+tap "homebrew/cask-cask"
 tap "cloudfoundry/tap"
 tap "datawire/blackbird"
 tap "derailed/k9s"
