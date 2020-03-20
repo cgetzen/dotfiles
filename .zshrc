@@ -20,7 +20,7 @@ source $ZSH/oh-my-zsh.sh
 
 export PATH="/usr/local/sbin:$PATH"
 # macports
-export PATH="/Users/charliegetzen/bin:$PATH:/opt/local/bin"
+export PATH="/Users/$(whoami)/bin:$PATH:/opt/local/bin"
 
 # go
 alias gosrc='cd ~/go/src/github.com'
@@ -47,9 +47,11 @@ tmux has-session -t 0 2> /dev/null || tmux
 
 
 # heroku autocomplete setup
-HEROKU_AC_ZSH_SETUP_PATH=/Users/charliegetzen/Library/Caches/heroku/autocomplete/zsh_setup && test -f $HEROKU_AC_ZSH_SETUP_PATH && source $HEROKU_AC_ZSH_SETUP_PATH;
+HEROKU_AC_ZSH_SETUP_PATH=/Users/$(whoami)/Library/Caches/heroku/autocomplete/zsh_setup && test -f $HEROKU_AC_ZSH_SETUP_PATH && source $HEROKU_AC_ZSH_SETUP_PATH;
 
 alias cat=" bat"
+export MANPAGER="sh -c 'col -bx | bat -l man -p'"
+export BAT_PAGER="less -RF"
 alias _cat=" /bin/cat"
 alias _ls=" /bin/ls"
 alias ls=" exa"
