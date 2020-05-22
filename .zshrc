@@ -51,7 +51,6 @@ HEROKU_AC_ZSH_SETUP_PATH=/Users/$(whoami)/Library/Caches/heroku/autocomplete/zsh
 
 alias cat=" bat"
 export MANPAGER="sh -c 'col -bx | bat -l man -p'"
-export BAT_PAGER="less -RF"
 alias _cat=" /bin/cat"
 alias _ls=" /bin/ls"
 alias ls=" exa"
