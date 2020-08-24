@@ -1,5 +1,5 @@
 [user]
-	email = charlie.getzen@okta.com 
+	email = charlie.getzen@okta.com
 	name = Charlie Getzen
 [filter "lfs"]
 	clean = git-lfs clean -- %f

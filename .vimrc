@@ -1,8 +1,5 @@
 "source ~/defaults.vim
-"ignore case on search
-set ic
-"click on tabs
-set mouse=a
+
 "yank to clipboard
 if has("clipboard")
   set clipboard=unnamed " copy to the system clipboard
@@ -15,14 +12,11 @@ endif
 "gb for listing buffers
 nnoremap gb :ls<CR>:b<Space>
 
-"allow :Man <cmd>
-:runtime! ftplugin/man.vim
-
-"allow backspace
-set backspace=2
-
-"Allow modifying buffers without saving
-set hidden
+set backspace=2 "allow backspace
+set hidden "Allow modifying buffers without saving
+set ic "ignore case on search
+set mouse=a "click on tabs
+" set laststatus=2 " for lightlight
 
 "install vimplug
 if empty(glob('~/.vim/autoload/plug.vim'))
@@ -34,11 +28,16 @@ endif
 "vim-plug
 call plug#begin('~/.vim/plugged')
 Plug 'preservim/nerdtree'
+Plug 'jistr/vim-nerdtree-tabs'
 Plug 'junegunn/fzf', { 'do': './install --bin' }
 Plug 'junegunn/fzf.vim'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'airblade/vim-gitgutter' " Git diff
 Plug 'dense-analysis/ale' " Linting
+Plug 'tpope/vim-fugitive' " Git in vim
+Plug 'vim-utils/vim-man' " :Man <cmd>
+Plug 'vim-utils/vim-troll-stopper' " highlights unicode
+" Plug 'itchyny/lightline.vim'
 call plug#end()
 
 let g:ale_terraform_langserver_executable = 'terraform-ls'
@@ -51,10 +50,14 @@ let g:ale_completion_enabled = 1 " Doesn't do anything yet
 set updatetime=250 " So git-gutter is interactive
 highlight clear SignColumn " git-gutter color parity
 
-"Ctrl-n opens tree
-map <C-a> :NERDTreeToggle<CR>
-"Make ; fzf
-map ; :Files<CR>
+if has("autocmd")
+  au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$")
+    \| exe "normal! g'\"" | endif
+endif
+
+" Ctrl-a opens tree
+map <C-a> :NERDTreeTabsToggle<CR> 
+map ; :Files<CR> " Make ; fzf
 
 "Capitalize commands
 :command WQ wq
