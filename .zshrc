@@ -16,6 +16,7 @@ plugins=(
   zsh-autosuggestions
 )
 
+DISABLE_UNTRACKED_FILES_DIRTY=true # Fix for slowness in large repos
 source $ZSH/oh-my-zsh.sh
 
 export PATH="/usr/local/sbin:$PATH"
@@ -49,10 +50,12 @@ tmux has-session -t 0 2> /dev/null || tmux
 # heroku autocomplete setup
 HEROKU_AC_ZSH_SETUP_PATH=/Users/$(whoami)/Library/Caches/heroku/autocomplete/zsh_setup && test -f $HEROKU_AC_ZSH_SETUP_PATH && source $HEROKU_AC_ZSH_SETUP_PATH;
 
-alias cat=" bat"
+alias cat="bat"
 export MANPAGER="sh -c 'col -bx | bat -l man -p'"
-alias _cat=" /bin/cat"
-alias _ls=" /bin/ls"
-alias ls=" exa"
-alias ping=prettyping
-alias _ping=/sbin/ping
+alias _cat="/bin/cat"
+alias _ls="/bin/ls"
+alias ls="exa"
+alias ping="prettyping"
+alias _ping="/sbin/ping"
+alias lynx="lynx -vikeys"
+alias _lynx="/usr/local/bin/lynx"
