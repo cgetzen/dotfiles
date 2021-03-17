@@ -9,7 +9,7 @@ all:
 	@echo " - git: .gitconfig"
 
 brew:
-	(crontab -l ; echo "0 12 * * 1-5 PATH="/usr/local/bin:/usr/local/sbin:$${PATH}" $(CUR_DIR)/brew_manager.sh &> /tmp/brew.log && /usr/local/bin/terminal-notifier -title \"Updated brew\" -message \"/tmp/brew.log\"") | sort - | uniq - | crontab -
+	(crontab -l ; echo "30 9 * * 1-5 $(CUR_DIR)/brew_manager.sh &> /tmp/brew.log && /usr/local/bin/terminal-notifier -title \"Updated brew\" -message \"/tmp/brew.log\"") | sort | uniq | crontab -
 
 vim: .vimrc
 	test -e ~/.vimrc && rm ~/.vimrc || true

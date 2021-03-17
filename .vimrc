@@ -1,72 +1,68 @@
 "source ~/defaults.vim
 
-"yank to clipboard
-if has("clipboard")
-  set clipboard=unnamed " copy to the system clipboard
-
-  if has("unnamedplus") " X11 support
-    set clipboard+=unnamedplus
-  endif
-endif
-
-"gb for listing buffers
-nnoremap gb :ls<CR>:b<Space>
-
+" General Settings
 set backspace=2 "allow backspace
 set hidden "Allow modifying buffers without saving
 set ic "ignore case on search
 set mouse=a "click on tabs
-" set laststatus=2 " for lightlight
 
-"install vimplug
+if has("autocmd") " Open files in last known location
+  au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$")
+    \| exe "normal! g'\"" | endif
+endif
+
+" Mappings
+"gb for listing buffers
+nnoremap gb :ls<CR>:b<Space>
+:command WQ wq
+:command Wq wq
+:command W w
+:command Q q
+map <C-t><up> :tabr<cr>
+map <C-t><down> :tabl<cr>
+map <C-t><left> :tabp<cr>
+map <C-t><right> :tabn<cr>
+
+" install vimplug
 if empty(glob('~/.vim/autoload/plug.vim'))
   silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
     \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
   autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
 
-"vim-plug
+" vim-plug
 call plug#begin('~/.vim/plugged')
 Plug 'preservim/nerdtree'
 Plug 'jistr/vim-nerdtree-tabs'
 Plug 'junegunn/fzf', { 'do': './install --bin' }
 Plug 'junegunn/fzf.vim'
-Plug 'terryma/vim-multiple-cursors'
-Plug 'airblade/vim-gitgutter' " Git diff
-Plug 'dense-analysis/ale' " Linting
-Plug 'tpope/vim-fugitive' " Git in vim
-Plug 'vim-utils/vim-man' " :Man <cmd>
-Plug 'vim-utils/vim-troll-stopper' " highlights unicode
-" Plug 'itchyny/lightline.vim'
+Plug 'mg979/vim-visual-multi', {'branch': 'master'}
+Plug 'airblade/vim-gitgutter'       " Git diff
+Plug 'dense-analysis/ale'           " Linting
+Plug 'tpope/vim-fugitive'           " Git in vim
+Plug 'vim-utils/vim-man'            " :Man <cmd>
+Plug 'vim-utils/vim-troll-stopper'  " highlights unicode
+Plug 'psliwka/vim-smoothie'         " Scrolling
+Plug 'mhinz/vim-startify'           " Startup page
 call plug#end()
 
-let g:ale_terraform_langserver_executable = 'terraform-ls'
+" dense-analysis/ale config
+set omnifunc=ale#completion#OmniFunc
+let g:ale_terraform_ls_options = '-log-file /tmp/ale_lsp.txt'
+let g:ale_terraform_langserver_options = ' | tee /tmp/ale_lsp.txt'
 let g:ale_lint_on_text_changed = 'always'
 let g:ale_linter_aliases = {'tf': ['terraform']} " Allows filetype=tf to be linted properly
 let g:ale_fix_on_save = 1
-let g:ale_fixers = {'tf': ['terraform']} " Allows filetype=tf to have correct fixers
+let g:ale_fixers = {'*': ['trim_whitespace', 'remove_trailing_lines'], 'tf': ['terraform']}
 let g:ale_completion_enabled = 1 " Doesn't do anything yet
+let g:ale_linters = {'tf': ['terraform_lsp', 'terraform_ls']}
+let b:ale_terraform_ls_options = '-log-file /tmp/test.out'
 
+" airblade/vim-gitgutter config
 set updatetime=250 " So git-gutter is interactive
 highlight clear SignColumn " git-gutter color parity
 
-if has("autocmd")
-  au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$")
-    \| exe "normal! g'\"" | endif
-endif
 
-" Ctrl-a opens tree
-map <C-a> :NERDTreeTabsToggle<CR> 
-map ; :Files<CR> " Make ; fzf
-
-"Capitalize commands
-:command WQ wq
-:command Wq wq
-:command W w
-:command Q q
-
-"Tabs
-map <C-t><up> :tabr<cr>
-map <C-t><down> :tabl<cr>
-map <C-t><left> :tabp<cr>
-map <C-t><right> :tabn<cr>
+" preservim/nerdtree config
+map <C-a> :NERDTreeTabsToggle<CR>
+map ; :GFiles<CR> " Make ; fzf
