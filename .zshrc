@@ -46,9 +46,8 @@ eval "$(rbenv init -)"
 
 tmux has-session -t 0 2> /dev/null || tmux
 
-
 # heroku autocomplete setup
-HEROKU_AC_ZSH_SETUP_PATH=/Users/$(whoami)/Library/Caches/heroku/autocomplete/zsh_setup && test -f $HEROKU_AC_ZSH_SETUP_PATH && source $HEROKU_AC_ZSH_SETUP_PATH;
+#HEROKU_AC_ZSH_SETUP_PATH=/Users/$(whoami)/Library/Caches/heroku/autocomplete/zsh_setup && test -f $HEROKU_AC_ZSH_SETUP_PATH && source $HEROKU_AC_ZSH_SETUP_PATH;
 
 alias cat="bat"
 export MANPAGER="sh -c 'col -bx | bat -l man -p'"

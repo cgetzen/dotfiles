@@ -5,7 +5,7 @@ set backspace=2 "allow backspace
 set hidden "Allow modifying buffers without saving
 set ic "ignore case on search
 set mouse=a "click on tabs
-
+set number
 if has("autocmd") " Open files in last known location
   au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$")
     \| exe "normal! g'\"" | endif
@@ -65,4 +65,4 @@ highlight clear SignColumn " git-gutter color parity
 
 " preservim/nerdtree config
 map <C-a> :NERDTreeTabsToggle<CR>
-map ; :GFiles<CR> " Make ; fzf
+map ; :GFiles<CR>
