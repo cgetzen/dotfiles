@@ -2,35 +2,25 @@ CUR_DIR = $(CURDIR)
 
 all:
 	@echo "Please choose from one of:"
-	@echo " - brew: Creates cronjob"
-	@echo " - vim: vimrc"
-	@echo " - zsh: zshrc & ohmyzsh"
-	@echo " - atom: atom configs"
-	@echo " - git: .gitconfig"
+	@echo " - cron: sets up crontabs"
+	@echo " - config: sets up XDG paths"
 
-brew:
-	(crontab -l ; echo "30 9 * * 1-5 $(CUR_DIR)/brew_manager.sh &> /tmp/brew.log && /usr/local/bin/terminal-notifier -title \"Updated brew\" -message \"/tmp/brew.log\"") | sort | uniq | crontab -
+cron:
+	crontab crontab
 
-vim: .vimrc
-	test -e ~/.vimrc && rm ~/.vimrc || true
-	ln -s $(CUR_DIR)/.vimrc ~/.vimrc
-
-zsh: ohmyzsh .zshrc
-	test -e ~/.zshrc && rm ~/.zshrc || true
-	ln -s $(CUR_DIR)/.zshrc ~/.zshrc
+config:
+	test -e ~/.config || ln -s $(CUR_DIR)/config ~/.config # XDG_CONFIG_HOME
+	defaults write com.googlecode.iterm2 PrefsCustomFolder ~/.config/iterm # iterm2
+	mkdir -p ~/.data/zsh
+	test -L /etc/zshenv || (sudo rm /etc/zshenv && sudo ln -s $(CUR_DIR)/zshenv /etc/zshenv)
 
 tmux:
-	test -e ~/.tmux.conf && rm ~/.tmux.conf || true
-	ln -s $(CUR_DIR)/.tmux.conf ~/.tmux.conf
+	git clone https://github.com/tmux-plugins/tpm ~/.data/tmux/plugins/tpm
 
-ohmyzsh:
-	test -e ~/.oh-my-zsh || git clone https://github.com/robbyrussell/oh-my-zsh.git ~/.oh-my-zsh
-	cp $(CUR_DIR)/.oh-my-zsh/custom/themes/charlieg.zsh-theme ~/.oh-my-zsh/custom/themes
+zsh:
+	@echo "TODO"
 
 atom:
 	test -e ~/.atom && rm ~/.atom/config.cson || atom
 	ln -s ~/.atom/config.cson $(CUR_DIR)/.atom/config.cson
 	apm install --packages-file .atom/package.list
-
-git:
-	ln -s $(CUR_DIR)/.gitconfig ~/.gitconfig

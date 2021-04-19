@@ -1,0 +1,38 @@
+# Environment
+brew "bash-completion"
+brew "bat"
+brew "diff-so-fancy"
+brew "exa"
+brew "terminal-notifier"
+brew "tmux"
+brew "zsh"
+brew "zsh-completions"
+cask "iterm2"
+
+# Tools
+brew "awscli"
+brew "git"
+brew "gnu-sed"
+brew "go"
+brew "htop"
+brew "helm"
+brew "jq"
+brew "kubernetes-cli"
+brew "the_silver_searcher"
+cask "atom"
+cask "docker"
+cask "gitify"
+cask "ngrok"
+# cask "virtualbox"
+cask "visual-studio-code"
+
+# Version Managers
+brew "rbenv"
+brew "tfenv"
+brew "pyenv"
+
+# Other
+cask "authy"
+cask "brave-browser"
+# cask "firefox"
+cask "spotify"

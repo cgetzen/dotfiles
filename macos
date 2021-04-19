@@ -55,4 +55,8 @@ defaults write com.apple.messageshelper.MessageController SOInputLineSettings -d
 # Disable smart quotes as it’s annoying for messages that contain code
 defaults write com.apple.messageshelper.MessageController SOInputLineSettings -dict-add "automaticQuoteSubstitutionEnabled" -bool false
 
+# No .ds_store
+defaults write com.apple.desktopservices DSDontWriteNetworkStores true
 
+# Show battery percentage
+defaults write com.apple.menuextra.battery ShowPercent YES

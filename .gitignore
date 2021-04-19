@@ -1,3 +1,12 @@
 id_rsa*
 *.bak
+*.swp
 Brewfile.lock.json
+config/iterm2
+htoprc
+config/atom/blob-store
+config/atom/compile-cache
+config/atom/storage
+config/atom/github.cson
+config/atom/.apm
+config/atom/.atom-socket*
