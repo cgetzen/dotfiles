@@ -13,6 +13,17 @@ export RBENV_ROOT="$XDG_DATA_HOME/rbenv"
 export LESSHISTFILE=-
 export DOCKER_CONFIG="$XDG_DATA_HOME/docker"
 export ATOM_HOME="$XDG_CONFIG_HOME/atom"
+export AWS_CONFIG_FILE="$XDG_CONFIG_HOME/aws/config"
+export GOCACHE="$XDG_CACHE_HOME/go-build"
+export SAML2AWS_CONFIGFILE="$XDG_DATA_HOME/saml2aws"
+export NVM_DIR="$XDG_DATA_HOME/nvm"
+export NPM_CONFIG_CACHE="$XDG_CACHE_HOME/npm"
+export NPM_CONFIG_TMP="$XDG_CACHE_HOME/npm"
+export TF_CLI_CONFIG_FILE="$XDG_CONFIG_HOME/terraformrc"
+export KUBECONFIG="$XDG_DATA_HOME/kube/config"
+export PM2_HOME="$XDG_DATA_HOME/pm2"
+alias bash="/bin/bash --rcfile $XDG_CONFIG_HOME/bashrc"
+ngrok () { /usr/local/bin/ngrok "$@" --config "$XDG_DATA_HOME/ngrok2/ngrok.yml" }
 
 # zsh
 ZSH_THEME="charlieg"
@@ -29,6 +40,7 @@ if ! test -d $ZSH/custom/plugins/zsh-autosuggestions; then
 fi
 
 plugins=(
+  dotenv
   osx
   zsh-syntax-highlighting
   zsh-autosuggestions
@@ -41,8 +53,11 @@ export PATH="/usr/local/sbin:$PATH"
 # macports
 export PATH="/Users/$(whoami)/bin:$PATH:/opt/local/bin"
 
-# go
-alias gosrc='cd ~/go/src/github.com'
+# git
+alias gc="git commit --signoff"
+alias gco="git checkout"
+alias gd="git diff"
+alias gdc="git diff --cached"
 
 # kubectl
 alias get="kubectl get"
@@ -50,7 +65,6 @@ alias delete="kubectl delete"
 alias logs="kubectl logs"
 
 # other
-# export GOPATH=$HOME/go
 export PATH=$PATH:$(go env GOPATH)/bin
 
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"

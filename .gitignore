@@ -4,9 +4,12 @@ id_rsa*
 Brewfile.lock.json
 config/iterm2
 htoprc
+credentials
+config/configstore
 config/atom/blob-store
 config/atom/compile-cache
 config/atom/storage
+config/atom/packages
 config/atom/github.cson
 config/atom/.apm
 config/atom/.atom-socket*

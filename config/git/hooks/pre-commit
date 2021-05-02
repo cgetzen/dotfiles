@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+
+files=$(git diff --diff-filter=d --cached --name-only)
+for f in $files; do
+  case "${f##*.}" in
+    tf)
+      terraform fmt "$f" >/dev/null
+      git add "$f"
+      ;;
+    go)
+      go fmt "$f" >/dev/null
+      git add "$f"
+  esac
+done

@@ -1,0 +1,2 @@
+export XDG_CACHE_HOME=~/.cache
+HISTFILE="$XDG_CACHE_HOME/bash_history"

@@ -12,8 +12,14 @@
 	amend = commit --amend --no-edit
 	branches = "!echo \"`git branch`\""
 	set-upstream = !git branch --set-upstream-to=origin/`git symbolic-ref --short HEAD`
+	c = commit -s
 [pager]
 	diff = diff-so-fancy | less --tabs=1,5 -RFX
 	show = diff-so-fancy | less --tabs=1,5 -RFX
 [pull]
+	default = current
 	#rebase = true
+[format]
+	signOff = true
+[core]
+	hooksPath = /Users/charliegetzen/.config/git/hooks
