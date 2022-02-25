@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-export PATH="/usr/local/bin:/usr/bin"
+export PATH="/usr/local/bin:/usr/bin:/usr/local/sbin"
 
 echo "# Update"
 brew update

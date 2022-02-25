@@ -1,1 +1,1 @@
-33 9 * * 1-5 /Users/charliegetzen/github.com/cgetzen/dotfiles/brew_manager.sh &> /tmp/brew.log && /usr/local/bin/terminal-notifier -title "Updated brew" -message "/tmp/brew.log"
+33 9 * * 1-5 /Users/charliegetzen/.local/bin/brew_manager &> /tmp/brew.log && /usr/local/bin/terminal-notifier -title "Updated brew" -message "/tmp/brew.log"
