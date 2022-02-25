@@ -1,0 +1,6 @@
+brew "argocd"
+brew "helm"
+brew "kubectx"
+brew "kustomize"
+brew "kubernetes-cli"
+brew "instrumenta/instrumenta/kubeval"
