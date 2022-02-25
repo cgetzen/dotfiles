@@ -48,7 +48,7 @@ Plug 'airblade/vim-gitgutter'       " Git diff
 Plug 'dense-analysis/ale'           " Linting
 Plug 'tpope/vim-fugitive'           " Git in vim
 Plug 'vim-utils/vim-man'            " :Man <cmd>
-Plug 'vim-utils/vim-troll-stopper'  " highlights unicode
+" Plug 'vim-utils/vim-troll-stopper'  " highlights unicode
 Plug 'psliwka/vim-smoothie'         " Scrolling
 Plug 'mhinz/vim-startify'           " Startup page
 call plug#end()
