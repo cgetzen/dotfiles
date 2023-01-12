@@ -6,9 +6,13 @@
 	<true/>
 	<key>AlternateMouseScroll</key>
 	<true/>
+	<key>ConvertDosNewlines</key>
+	<true/>
 	<key>Default Bookmark Guid</key>
 	<string>657C15E5-32BD-4B1D-9872-B28F2B355360</string>
 	<key>DisableFullscreenTransparency</key>
+	<false/>
+	<key>EscapeShellCharsWithBackslash</key>
 	<false/>
 	<key>FlashTabBarInFullscreen</key>
 	<true/>
@@ -485,6 +489,12 @@
 	<integer>0</integer>
 	<key>PMPrintingExpandedStateForPrint2</key>
 	<false/>
+	<key>PasteSpecialRegex</key>
+	<string></string>
+	<key>PasteSpecialSubstitution</key>
+	<string></string>
+	<key>PasteSpecialUseRegexSubstitution</key>
+	<false/>
 	<key>PasteTabToStringTabStopSize</key>
 	<integer>2</integer>
 	<key>PointerActions</key>
@@ -534,6 +544,8 @@
 	<false/>
 	<key>TabStyle</key>
 	<integer>1</integer>
+	<key>TabTransform</key>
+	<integer>0</integer>
 	<key>UseBorder</key>
 	<false/>
 	<key>VisualIndicatorForEsc</key>

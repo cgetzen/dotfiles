@@ -10,6 +10,7 @@ export BOLTUSR=charlie
 export XDG_CONFIG_HOME=~/.config
 export XDG_DATA_HOME=~/.local
 export XDG_CACHE_HOME=~/.cache
+
 # XDG Applications
 export VIMINIT='let $MYVIMRC="$XDG_CONFIG_HOME/vim/vimrc" | source $MYVIMRC'
 export PYTHONHISTORY="$XDG_CACHE_HOME/python/python_history"
@@ -30,7 +31,7 @@ export NPM_CONFIG_TMP="$XDG_CACHE_HOME/npm"
 export TF_CLI_CONFIG_FILE="$XDG_CONFIG_HOME/terraformrc"
 export KUBECONFIG="$XDG_DATA_HOME/kube/config"
 export PM2_HOME="$XDG_DATA_HOME/pm2"
-export HELM_REPOSITORY_CONFIG="$XDG_DATA_HOME/helm"
+# export HELM_REPOSITORY_CONFIG="$XDG_DATA_HOME/helm"
 export GH_CONFIG_DIR="$XDG_DATA_HOME/gh"
 alias bash="/bin/bash --rcfile $XDG_CONFIG_HOME/bashrc"
 ngrok () {
@@ -68,7 +69,6 @@ plugins=(
 DISABLE_UNTRACKED_FILES_DIRTY=true # Fix for slowness in large repos
 export  LC_CTYPE="en_US.UTF-8"
 source $ZSH/oh-my-zsh.sh
-compinit -d "$XDG_CACHE_HOME/zsh/zcompdump-${ZSH_VERSION}"
 
 addToPATH "/usr/local/sbin"
 addToPATH "/Users/$(whoami)/.local/bin"
@@ -86,7 +86,6 @@ alias gdc="git diff --cached"
 source "/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.zsh.inc"
 source "/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.zsh.inc"
 
-
 # kubectl
 alias get="kubectl get"
 alias delete="kubectl delete"
@@ -95,17 +94,21 @@ alias logs="kubectl logs"
 # other
 export PATH=$PATH:$(go env GOPATH)/bin
 
-test -e "${XDG_CONFIG_HOME}/zsh/.iterm2_shell_integration.zsh" && source "${XDG_CONFIG_HOME}/zsh/.iterm2_shell_integration.zsh" || echo "Shell integrations not installed"
-eval "$(rbenv init -)"
-
+if [ -e "${XDG_CACHE_HOME}/.iterm2_shell_integration.zsh" ]; then
+  source "${XDG_CACHE_HOME}/.iterm2_shell_integration.zsh"
+else
+  echo "Shell integrations installing in background."
+  {
+    sleep 3;
+    curl -L https://iterm2.com/shell_integration/zsh -o "${XDG_CACHE_HOME}/.iterm2_shell_integration.zsh" 2> /dev/null;
+  } &
+fi
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 tmux has-session -t 0 2> /dev/null || tmux
 
-# heroku autocomplete setup
-#HEROKU_AC_ZSH_SETUP_PATH=/Users/$(whoami)/Library/Caches/heroku/autocomplete/zsh_setup && test -f $HEROKU_AC_ZSH_SETUP_PATH && source $HEROKU_AC_ZSH_SETUP_PATH;
-[ -s "/usr/local/opt/nvm/nvm.sh" ] && . "/usr/local/opt/nvm/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 
 alias cat="bat"
 export MANPAGER="sh -c 'col -bx | bat -l man -p'"
